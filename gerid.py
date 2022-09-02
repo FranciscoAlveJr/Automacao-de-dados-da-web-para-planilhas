@@ -70,16 +70,6 @@ def main():
 
     element.until(EC.presence_of_element_located((By.ID, 'formSugestaoDesistenciaRequerimento:btnAvancarSugestaoDesistenciaRequerimento')))
 
-    # while True:
-    #     try:
-    #         element.until(EC.element_to_be_clickable((By.ID, 'formSugestaoDesistenciaRequerimento:btnAvancarSugestaoDesistenciaRequerimento')))
-    #         av2 = driver.find_element(By.ID, 'formSugestaoDesistenciaRequerimento:btnAvancarSugestaoDesistenciaRequerimento')
-    #         av2.click()
-    #         break
-    #     except:
-    #         print('erro')
-    #         continue
-
     r = WebDriverWait(driver, 10)
     r.until(EC.presence_of_element_located((By.ID, 'formAgendarConsultar:cpfInput')))
 
@@ -122,7 +112,7 @@ def main():
         'X-Requested-With': 'XMLHttpRequest'
         }
 
-    chaves = ['CPF', 'NOME', 'DATA DE NASCIMENTO', 'IDADE', 'NB', 'DATA DE INDEFERIMENTO', 'ESPÉCIE', 'MOTIVO DO INDEFERIMENTO', 'NOME_MAE', 'LOGRADOURO S1', 'NÚMERO S1', 'COMPLEMENTO S1', 'BAIRRO S1', 'ESTADO-CIDADE S1', 'CEP S1', 'LOGRADOURO S2', 'NÚMERO S2', 'COMPLEMENTO S2', 'BAIRRO S2','ESTADO-CIDADE S2','CEP S2', 'LOGRADOURO O1', 'NÚMERO O1', 'COMPLEMENTO O1', 'BAIRRO O1', 'ESTADO-CIDADE O1', 'CEP O1', 'LOGRADOURO O2', 'NÚMERO O2', 'COMPLEMENTO O2', 'BAIRRO O2', 'ESTADO-CIDADE O2', 'CEP O2', 'CELULAR', 'TELEFONE PRINCIPAL', 'TELEFONE SECUNDÁRIO', 'CELULAR0', 'CELULAR1', 'CELULAR2', 'TELEFONE0', 'TELEFONE1', 'TELEFONE2', 'E-MAIL', 'PROCESSOS']
+    chaves = []
 
     arquivos_xlsx = glob.glob('read/*')
     last = arquivos_xlsx[-1]
@@ -633,54 +623,11 @@ def main():
                                     ws.column_dimensions[cells[k].column_letter].width = cell_size+5
 
                             row = []
-                            # cont = 0
-                            # if valores[10] == 'N/D' or color == yellow:
-                                # while cont < 3:
-                                #     muni_uf = transparencia(c)
-                                #     if muni_uf != None and muni_uf != {}:
-                                #         break
-                                #     else:
-                                #         cont += 1
-                                #         print('Nada encontrado no portal.\nTentando novamente.')
-                                #         continue
-                                # if cont == 3:
-                                    # color = yellow
-                                    # if valores[5] == 'N/D':
-                                    #     valores[5] = orig_logradouro
-                                    #     mods.append(5)
-                                    # if valores[6] == 'N/D':
-                                    #     valores[6] = orig_num
-                                    #     mods.append(6)
-                                    # # if valores[9] == 'N/D':
-                                    # #     valores[9] = orig_compl
-                                    # #     mods.append(9)
-                                    # if valores[8] == 'N/D':
-                                    #     valores[8] = orig_bair
-                                    #     mods.append(8)
-                                    # if valores[9] == 'N/D':
-                                    #     valores[9] = orig_cid_uf
-                                    #     mods.append(9)
-                                    # if valores[10] == 'N/D':
-                                    #     valores[10] = orig_cep
-                                    #     mods.append(10)
 
                             for f, valor in enumerate(valores):
                                 try:
                                     if valor == '':
                                         valor = 'N/D'
-                                    # if cont < 3:
-                                    #     cont2 = 0
-                                    #     if f == 9 and valor == 'N/D' or color == yellow and f == 9:
-                                    #         while cont2 < 3:
-                                    #             muni_uf = transparencia(c)
-                                    #             if muni_uf != None and muni_uf != {}:
-                                    #                 color3 = blue
-                                    #                 mods3.append(f)
-                                    #                 valor = f"{muni_uf['uf']} - {muni_uf['cidade']}"
-                                    #                 break
-                                    #             else:
-                                    #                 cont2 += 1
-                                    #                 continue
 
                                     cell = WriteOnlyCell(ws, value=valor)
 
