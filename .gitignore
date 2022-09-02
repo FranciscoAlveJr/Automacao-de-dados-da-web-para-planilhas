@@ -1,0 +1,17 @@
+build
+dist
+functions
+*.exe
+*.zip
+*.spec
+*.xlsx
+*.docx
+t.py
+gerid_teste.py
+*.txt
+!path/*
+!results/*
+!read/*
+*.ico
+!requirements.txt
+venv/*
